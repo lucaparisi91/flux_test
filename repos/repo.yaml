@@ -1,0 +1,3 @@
+repo:
+  namespace: flux_fix
+  description: Spack repository for Archer2 custom packages
