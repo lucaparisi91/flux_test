@@ -20,3 +20,5 @@ export SRUN_CPUS_PER_TASK=$SLURM_CPUS_PER_TASK
 module use /mnt/lustre/a2fs-work4/work/y07/shared/archer2-lmod/others/dev
 module load spack
 spack -ddd -vvv install -j 8 flux-sched%gcc
+
+spack repo add repos
