@@ -25,4 +25,6 @@ spack load flux-sched
 
 export NNODES=${SLURM_NNODES}
 export NCPUS_PER_NODE=${SLURM_CPUS_ON_NODE}
+export JOBS_PER_CORE=2
+
 srun -N ${SLURM_NNODES} -n ${SLURM_NNODES}  --mpi=pmi2  flux start ./flux_farm.sh
