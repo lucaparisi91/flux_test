@@ -12,6 +12,9 @@
 #SBATCH --exclusive
 #SBATCH --hint=nomultithread
 
+
+
+
 export OMP_NUM_THREADS=1
 export OMP_PLACES=cores
 export SRUN_CPUS_PER_TASK=$SLURM_CPUS_PER_TASK
@@ -27,4 +30,20 @@ export NNODES=${SLURM_NNODES}
 export NCPUS_PER_NODE=${SLURM_CPUS_ON_NODE}
 export JOBS_PER_CORE=2
 
+echo "Start at $(date): N=${NNODES}"
+
+# Start timer
+start_time=$(date +%s)
+
 srun -N ${SLURM_NNODES} -n ${SLURM_NNODES}  --mpi=pmi2  flux start ./flux_farm.sh
+
+
+# End timer and print wall time
+end_time=$(date +%s)
+elapsed=$((end_time - start_time))
+echo "Total wall time: ${elapsed} seconds"
+
+# Print the Slurm job ID
+echo "SLURM Job ID: $SLURM_JOB_ID"
+
+echo "End at $(date)"
