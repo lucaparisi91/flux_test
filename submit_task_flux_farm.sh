@@ -21,7 +21,8 @@ module load spack
 spack load flux-core
 spack load flux-sched
 
-sed -ie "s:hosts =.*:hosts ='${SLURM_NODELIST}':g" resource.toml 
 # Start a flux instance for the allocation and submit ./test once per SLURM task
 
-srun -N ${SLURM_NNODES} -n ${SLURM_NNODES}  --mpi=pmi2  flux start ./flux_farm.sh 
+export NNODES=${SLURM_NNODES}
+export NCPUS_PER_NODE=${SLURM_CPUS_ON_NODE}
+srun -N ${SLURM_NNODES} -n ${SLURM_NNODES}  --mpi=pmi2  flux start ./flux_farm.sh

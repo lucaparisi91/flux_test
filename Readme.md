@@ -8,8 +8,8 @@ You can build using
 sbatch submit_build.sh
 ```
 
-To run the task farm 
+To run the task farm
 
 ```bash
-sbatch submit_task_farm.sh
+sbatch submit_task_flux_farm.sh
 ```
