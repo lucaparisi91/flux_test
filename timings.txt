@@ -1,0 +1,11 @@
+# N: Number of nodes 
+# T_flux: Time in seconds for the flux job farm
+# T_slurm: Time in seconds for the slurm job farm
+
+N | T_flux | T_slurm
+1 | 84 | 81
+16 | 93  | 90
+20 | 92 | 102
+28 | 101 | 113
+32 | 98 | 141
+40 | 98 | 141
